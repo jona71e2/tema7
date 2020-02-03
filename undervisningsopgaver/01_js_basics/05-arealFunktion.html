@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Hvad er længden?</p>
+    <input type="text" id="længde">
+    <p>Hvad er bredden?</p>
+    <input type="text" id="bredde">
+    <button>Udregn areal og kig i consolen</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        let resultat;
+        let message;
+
+        function buttonClicked() {
+            let længde = document.querySelector("#længde").value;
+            let bredde = document.querySelector("#bredde").value;
+            let resultat = areal(længde, bredde);
+
+            if (resultat <= 0) {
+                message = "fejl";
+            } else {
+                message = `Arealet er ${resultat} kvadratmeter`;
+            }
+            console.log(message);
+
+
+        }
+
+        function areal(l, b) {
+            return (l * b);
+        }
+
+    </script>
+</body>
+
+</html>
