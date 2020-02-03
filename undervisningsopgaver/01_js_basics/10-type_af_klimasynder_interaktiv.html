@@ -23,7 +23,7 @@
             let resultat = timer * 109;
             let message = `Du har fløjet ${timer} timer og udledt ${resultat} kg CO2.\n`;
 
-            if (resultat < 100) {
+            if (resultat > 0 && resultat < 100) {
                 console.log(message + `Tæt på Thunberg`);
 
             } else if (resultat > 100 && resultat < 200) {
@@ -36,7 +36,10 @@
                 console.log(message + `Nå ja vi kan jo altid kolonisere en anden planet ...`);
             } else if (isNaN(timer)) {
                 console.log(`Fejl. Du skal indtaste et tal. \n Prøv igen`);
+            } else {
+                console.log(`Fejl. Du skal indtaste et positivt tal. \n Prøv igen`);
             }
+
         }
 
     </script>
