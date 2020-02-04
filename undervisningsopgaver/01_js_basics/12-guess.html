@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <div class="form">
+        <label for="gætTal">Gæt et helt tal mellem 1 og 20:</label>
+        <input type="text" id="gætTal" class="guessField">
+        <input type="submit" value="Tjek gæt" class="tjekGæt" id="gæt">
+    </div>
+
+    <div id="forsoeg">Antal gæt:</div>
+
+    <script>
+        let tal = Math.floor(Math.random() * 20 + 1);
+        let antalGæt = 0;
+
+        document.querySelector("#gæt").addEventListener("click", tjek);
+
+        function tjek() {
+            let værdiGæt = document.querySelector(".guessField").value;
+
+            if (værdiGæt == tal) {
+                console.log("Du gættede rigtigt!!!");
+                antalGæt++;
+                document.querySelector("#forsoeg").textContent = `Du skulle bruge` + antalGæt + `gæt`;
+            } else if (værdiGæt < tal) {
+                console.log("Dit gæt var for lavt.\n Prøv et højere tal!");
+                antalGæt++;
+                document.querySelector("#forsoeg").textContent = `Antal gæt:` + antalGæt;
+            } else if (værdiGæt > tal) {
+                console.log("Dit gæt var for højt.\n Prøv et lavere tal!");
+                antalGæt++;
+                document.querySelector("#forsoeg").textContent = `Antal gæt:` + antalGæt;
+            }
+
+
+        }
+
+    </script>
+</body>
+
+</html>
