@@ -29,7 +29,9 @@
             if (værdiGæt == tal) {
                 console.log("Du gættede rigtigt!!!");
                 antalGæt++;
-                document.querySelector("#forsoeg").textContent = `Du brugte` + antalGæt + `forsøg`;
+                document.querySelector("#forsoeg").textContent = `Du brugte ` + antalGæt + ` forsøg`;
+
+                confirm("Vil du prøve igen med et nyt tal?");
             } else if (værdiGæt < tal) {
                 console.log("Dit gæt var for lavt.\n Prøv et højere tal!");
                 antalGæt++;
@@ -42,6 +44,11 @@
 
 
         }
+
+        //        function retry() {
+        // confirm("Vil du prøve igen med et nyt tal?");
+        //
+        // }
 
     </script>
 </body>
