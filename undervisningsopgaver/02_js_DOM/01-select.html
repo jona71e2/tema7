@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <section id="content">
+
+        <div><a href="https://kea.dk/">KEA</a></div>
+        <div><a href="https://github.com/jona71e2/">Github</a></div>
+        <div><a href="http://mabe-kea.dk/E19/pics/frog.png">Frø</a></div>
+
+    </section>
+
+    <script>
+        const element = document.querySelector("#content");
+
+        const div1 = document.querySelector("div");
+        const div2 = document.querySelector("div + div");
+        const div3 = document.querySelector("div + div + div");
+
+        console.log(div1);
+        console.log(div2);
+        console.log(div3);
+
+        const div4 = document.querySelector("div:nth-child(1)");
+        const div5 = document.querySelector("div:nth-child(2)");
+        const div6 = document.querySelector("div:nth-child(3)");
+
+        console.log(div4);
+        console.log(div5);
+        console.log(div6);
+
+    </script>
+</body>
+
+</html>
