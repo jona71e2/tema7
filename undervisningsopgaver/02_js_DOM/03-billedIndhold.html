@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        #content div:nth-child(1) {
+            background: green;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+        div:nth-child(2) {
+            background: red;
+            width: 200px;
+            height: 200px;
+            border-radius: 100px;
+            text-align: center;
+            line-height: 200px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <section id="content">
+
+        <div></div>
+        <div></div>
+
+    </section>
+
+
+    <script>
+        const firstElement = document.querySelector("div:nth-child(1)");
+        const secondElement = document.querySelector("div:nth-child(2)");
+
+        firstElement.innerHTML = `<img src="http://mabe-kea.dk/E19/pics/frog.png" alt="Frø">`;
+        secondElement.innerHTML = `<img src="http://mabe-kea.dk/E19/pics/pig.png" alt="gris">`;
+
+    </script>
+</body>
+
+</html>
