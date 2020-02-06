@@ -10,12 +10,26 @@
 
 <body>
 
-    <ul id=”display”></ul>
+    <ul id="display"></ul>
 
-    <p id="demo"></p>
+    <!--    <p id="demo"></p>-->
 
     <script>
-        const playliste = ["Linje H", "1,2,3,4", "Hånd i Hånd", "Dråber Af Lys", "Rejsekammerater", "Crew Love", "Better Now", "Uh Babe", "Holy Grail", "Everything That Isn't Me"];
+        let playliste = ["Linje H", "1,2,3,4", "Hånd i Hånd", "Dråber Af Lys", "Rejsekammerater", "Crew Love", "Better Now", "Lampeskærm", "Holy Grail", "Everything That Isn't Me"];
+
+
+        console.log(playliste);
+
+        playliste.forEach(song => {
+            let element = document.createElement("li");
+            let mySong = document.createTextNode(song);
+
+            element.appendChild(mySong);
+            console.log(element);
+            document.querySelector("#display").appendChild(element);
+
+
+        })
 
         //        playliste.forEach(song => {
         //            console.log(song);
@@ -31,10 +45,10 @@
         //
         //        })
 
-        const playliste2 = ["Linje H", "1,2,3,4", "Hånd i Hånd", "Dråber Af Lys", "Rejsekammerater", "Crew Love", "Better Now", "Uh Babe", "Holy Grail", "Everything That Isn't Me"];
-        playliste2.forEach(song => {
-            document.querySelector("#demo").innerHTML += song + "<br>";
-        });
+        //        const playliste2 = ["Linje H", "1,2,3,4", "Hånd i Hånd", "Dråber Af Lys", "Rejsekammerater", "Crew Love", "Better Now", "Uh Babe", "Holy Grail", "Everything That Isn't Me"];
+        //        playliste2.forEach(song => {
+        //            document.querySelector("#demo").innerHTML += song + "<br>";
+        //        });
 
         //        function myFunction(item, index) {
         // document.querySelector("#demo").innerHTML += index + ":" + item + "<br>";
