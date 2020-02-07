@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        img {
+            width: 100%;
+        }
+
+        section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ececec;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+
+
+        }
+
+        article {
+            border: 1px solid #000;
+            padding: 10px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <section id="data-container"></section>
+    <template>
+        <article>
+            <h3></h3>
+            <img src="" alt="">
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </article>
+    </template>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", start);
+
+        let personer = [];
+        const endpoint = "https://spreadsheets.google.com/feeds/list/1XWWbfWszD7f4jHqp51V_oT3pkHuR-ceEUw4YtrvK7F0/od6/public/values?alt=json";
+
+        function start() {
+            console.log("start");
+            hentData();
+        }
+
+        async function hentData() {
+            console.log("Data");
+            const response = await fetch(endpoint);
+            console.log(response);
+            personer = await response.json();
+            console.log(personer);
+            visPersoner();
+
+        }
+
+        function visPersoner() {
+            console.log("visPersoner");
+            const destination = document.querySelector("article");
+            const container = document.querySelector("#data-container");
+            const personerTemplate = document.querySelector("template");
+
+            personer.feed.entry.forEach(person => {
+                let klon = personerTemplate.cloneNode(true).content;
+                klon.querySelector("h3").textContent = `${person.gsx$navn.$t} ${person.gsx$efternavn.$t}`;
+                klon.querySelector("img").src = person.gsx$billede.$t;
+                klon.querySelector("p:nth-child(3)").textContent += `Køn: ${person.gsx$sex.$t}`;
+                klon.querySelector("p:nth-child(4)").textContent += `Alder: ${person.gsx$alder.$t}`;
+                klon.querySelector("p:nth-child(5)").textContent += `Religion: ${person.gsx$religion.$t}`;
+                klon.querySelector("p:nth-child(6)").textContent += `Hobby: ${person.gsx$hobby.$t}`;
+                klon.querySelector("p:nth-child(7)").textContent += `Job: ${person.gsx$job.$t}`;
+                klon.querySelector("p:nth-child(8)").textContent += `By: ${person.gsx$by.$t}`;
+                klon.querySelector("p:nth-child(9)").textContent += `RPC: ${person.gsx$rpc.$t}`;
+                container.appendChild(klon);
+
+
+            })
+
+        }
+    </script>
+</body></html>
